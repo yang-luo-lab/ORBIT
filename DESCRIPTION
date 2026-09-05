@@ -1,0 +1,26 @@
+Package: ORBIT
+Title: Omic Rank-Based Integration Tools
+Version: 0.1.0
+Authors@R: c(
+    person("Zifeng", "Qiu", , "qiuzifeng4518@gmail.com", role = c("aut", "cre")),
+    person("Yang", "Luo", , "yang.luo@kennedy.ox.ac.uk", role = "aut")
+    )
+Description: Integrates summary-level multi-omic data using the
+    Variance-Gamma distribution to identify features that consistently
+    rank highly in one direction across omics. Each omic is supplied as
+    a list of ordered values (e.g., p-values) over a shared feature
+    space (e.g., genes), and the package returns a p-value and
+    direction for each feature.
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+Imports:
+    statmod,
+    stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Config/roxygen2/version: 8.0.0
+VignetteBuilder: knitr
