@@ -1,13 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ORBIT
+# ORBIT <img src="https://github.com/user-attachments/assets/e988e60a-cf5a-41b0-b0e6-8e497f64ffb1" align="right" height="139" alt="" />
 
 <!-- badges: start -->
 
 <!-- badges: end -->
-
-# ORBIT <img src="https://github.com/user-attachments/assets/e988e60a-cf5a-41b0-b0e6-8e497f64ffb1" align="right" height="139" alt="" />
 
 **ORBIT** integrates per-feature summary statistics across multiple omic
 layers into a single calibrated P-value, while accounting for
