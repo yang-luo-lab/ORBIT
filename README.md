@@ -34,7 +34,7 @@ You can install the development version from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("zifengqiu/ORBIT")
+devtools::install_github("yang-luo-lab/ORBIT")
 ```
 
 ## Quick example
