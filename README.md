@@ -7,6 +7,8 @@
 
 <!-- badges: end -->
 
+# ORBIT <img src="https://github.com/user-attachments/assets/e988e60a-cf5a-41b0-b0e6-8e497f64ffb1" align="right" height="139" alt="" />
+
 **ORBIT** integrates per-feature summary statistics across multiple omic
 layers into a single calibrated P-value, while accounting for
 between-omic correlation. It needs only the output of your per-omic
