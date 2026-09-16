@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ORBIT <img src="https://github.com/user-attachments/files/32311289/ORBIT_logo_editable_clean.pdf" align="right" height="139" alt="" />
+# ORBIT <img src="https://github.com/user-attachments/assets/15c5d57c-1d4e-48a0-a2da-621cd0bf181c" align="right" height="139" alt="" />
 
 <!-- badges: start -->
 
