@@ -13,7 +13,8 @@ between-omic correlation. It needs only the output of your per-omic
 differential analyses — effect direction plus P-value or rank statistic
 — not the raw sample-level data.
 
-## Interactive website and examples **<https://yang-luo-lab.github.io/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics/>**
+## Interactive website and examples
+**[Click here](https://yang-luo-lab.github.io/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics/)** to explore the CKD and DCM results interactively, or run ORBIT on your own summary statistics directly in the browser.
 
 The package centers on three functions:
 
