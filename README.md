@@ -13,6 +13,8 @@ between-omic correlation. It needs only the output of your per-omic
 differential analyses — effect direction plus P-value or rank statistic
 — not the raw sample-level data.
 
+## Interactive website and examples **<https://yang-luo-lab.github.io/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics/>**
+
 The package centers on three functions:
 
 - **`ORBIT_cor()`** — estimate the between-omic correlation `ρ` from
