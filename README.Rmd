@@ -144,7 +144,7 @@ ORBIT can also be run on your own summary statistics without installing R, using
 
 **Reproducing the results in the manuscript**
 
-Code and summary statistics for reproducing the CKD and DCM analyses are available at https://github.com/yang-luo-lab/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics.
+Code figures and summary statistics of CKD and DCM analyses are available at https://github.com/yang-luo-lab/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics.
 
 ## How it works
 
