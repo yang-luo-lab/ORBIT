@@ -169,8 +169,8 @@ website](https://yang-luo-lab.github.io/Rank-based-integration-identifies-conver
 
 **Reproducing the results in the manuscript**
 
-Code figures and summary statistics of CKD and DCM analyses are
-available at
+Code used to generate the figures and summary statistics of CKD and DCM
+analyses are available at
 <https://github.com/yang-luo-lab/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics>.
 
 ## How it works
