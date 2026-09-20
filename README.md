@@ -14,9 +14,14 @@ differential analyses — effect direction plus P-value or rank statistic
 — not the raw sample-level data.
 
 ## Interactive website and examples
-**[Click here](https://yang-luo-lab.github.io/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics/)** to explore the CKD and DCM results interactively, or run ORBIT on your own summary statistics directly in the browser.
+
+**[Click
+here](https://yang-luo-lab.github.io/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics/)**
+to explore the CKD and DCM results interactively, or run ORBIT on your
+own summary statistics directly in the browser.
 
 ## Description
+
 The package centers on three functions:
 
 - **`ORBIT_cor()`** — estimate the between-omic correlation `ρ` from
@@ -31,15 +36,40 @@ The package centers on three functions:
 (per-pair, e.g. from `ORBIT_cor()$rho_mat`), or left as `NULL` in
 `ORBIT_P()` for automatic estimation.
 
+## System requirements
+
+**Software dependencies**
+
+- R (tested on version 4.5.2)
+- R packages: `statmod` (tested on version 1.5.2) and `stats` (included
+  with base R)
+- Optional, for running tests: `testthat` (\>= 3.0.0)
+
+**Operating systems**
+
+ORBIT is written in pure R with no compiled code and is expected to run
+on any platform supported by R (macOS, Windows, Linux).
+
+**Versions tested**
+
+- macOS Tahoe 26.6.1, R 4.5.2, statmod 1.5.2
+
+**Hardware**
+
+No non-standard hardware is required. ORBIT runs on a standard desktop
+or laptop computer.
+
 ## Installation
 
 You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("yang-luo-lab/ORBIT")
+# install.packages("remotes")
+remotes::install_github("yang-luo-lab/ORBIT")
 ```
+
+Typical install time on a standard desktop computer is about 10 seconds.
 
 ## Quick example
 
@@ -89,6 +119,60 @@ table(predicted = fdr < 0.05, truth = truth)
 #>     TRUE      4   30
 ```
 
+**Expected output.** `res` is a data frame with one row per feature:
+`Feature` (feature ID), `N` (number of omics in which the feature was
+observed), `P` (combined P-value) and `Direction` (direction of the
+combined effect, 1 or -1). With `seed = 1` the estimated `rho` is 0.3005
+and the final confusion table matches the one shown above.
+
+**Expected run time.** The full example above runs in under 1 second on
+a standard desktop computer (0.1 s on the tested system).
+
+## Instructions for use
+
+**Running ORBIT on your own data**
+
+ORBIT takes a named list of data frames, one per omic layer. Each data
+frame has one row per feature and the following columns:
+
+| Column | Type | Description |
+|----|----|----|
+| `feature` | character | Feature ID shared across omics (e.g. gene symbol) |
+| `sign` | numeric | Direction of effect from the per-omic analysis, `1` or `-1` |
+| `stat` | numeric | Per-feature P-value (for `ORBIT_P()`) or rank statistic (for `ORBIT_Rank()`) |
+| `significance` | logical | Optional. Per-omic significance call (e.g. FDR \< 0.05), used by `ORBIT_cor()` with `sig_mode = "column"` to exclude signal features when estimating `rho` |
+
+Features do not need to be present in every omic; ORBIT takes the union
+of features and reports the number of contributing omics in `N`.
+
+``` r
+library(ORBIT)
+
+omics_list <- list(
+  rna     = data.frame(feature = rna_de$gene,  sign = sign(rna_de$logFC),  stat = rna_de$pvalue),
+  protein = data.frame(feature = prot_de$gene, sign = sign(prot_de$logFC), stat = prot_de$pvalue)
+)
+direction <- c(rna = 1, protein = 1)
+
+# Flag per-omic significant features so they are excluded from the rho estimate
+omics_list$rna$significance     <- p.adjust(omics_list$rna$stat, "BH") < 0.05
+omics_list$protein$significance <- p.adjust(omics_list$protein$stat, "BH") < 0.05
+
+fit <- ORBIT_cor(omics_list, direction, sig_mode = "column")
+res <- ORBIT_P(omics_list, direction, rho = fit$rho_mat)
+res$FDR <- p.adjust(res$P, method = "BH")
+```
+
+ORBIT can also be run on your own summary statistics without installing
+R, using the [interactive
+website](https://yang-luo-lab.github.io/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics/).
+
+**Reproducing the results in the manuscript**
+
+Code and summary statistics for reproducing the CKD and DCM analyses are
+available at
+<https://github.com/yang-luo-lab/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics>.
+
 ## How it works
 
 ORBIT models the combined statistic `D = Σ signed_score_j` under a
@@ -103,13 +187,6 @@ step. Without it, concordant signals across omics push features toward
 extreme ranks together and artificially inflate `ρ`. With it, the
 estimate stays close to the null correlation regardless of signal
 strength.
-
-For full methodology, comparisons, and worked examples, see the
-introductory vignette:
-
-``` r
-vignette("orbit-intro", package = "ORBIT")
-```
 
 ## Citation
 
