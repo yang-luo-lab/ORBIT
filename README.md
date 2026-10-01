@@ -167,12 +167,6 @@ ORBIT can also be run on your own summary statistics without installing
 R, using the [interactive
 website](https://yang-luo-lab.github.io/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics/).
 
-**Reproducing the results in the manuscript**
-
-Code used to generate the figures and summary statistics of CKD and DCM
-analyses are available at
-<https://github.com/yang-luo-lab/Rank-based-integration-identifies-convergent-disease-mechanisms-across-omics>.
-
 ## How it works
 
 ORBIT models the combined statistic `D = Σ signed_score_j` under a
@@ -192,4 +186,4 @@ strength.
 
 If you use ORBIT in your research, please cite:
 
-> \[Author(s) (Year). Title. Journal, vol(num), pages.\]
+> \[Qiu, Z., Palmer, D., Jostins-Dean, L., Lewis, A. J. M., Bull, K., Nanchahal, J., & Luo, Y. (2026). Rank-based integration identifies convergent disease mechanisms across omics. bioRxiv, preprint. https://doi.org/10.64898/2026.09.25.754380\]
