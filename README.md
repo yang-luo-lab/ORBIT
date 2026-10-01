@@ -186,4 +186,4 @@ strength.
 
 If you use ORBIT in your research, please cite:
 
-> \[Qiu, Z., Palmer, D., Jostins-Dean, L., Lewis, A. J. M., Bull, K., Nanchahal, J., & Luo, Y. (2026). Rank-based integration identifies convergent disease mechanisms across omics. bioRxiv, preprint. https://doi.org/10.64898/2026.09.25.754380\]
+> Qiu, Z., Palmer, D., Jostins-Dean, L., Lewis, A. J. M., Bull, K., Nanchahal, J., & Luo, Y. (2026). Rank-based integration identifies convergent disease mechanisms across omics. *bioRxiv*, preprint. https://doi.org/10.64898/2026.09.25.754380
